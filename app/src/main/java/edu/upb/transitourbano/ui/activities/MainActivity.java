@@ -1,8 +1,10 @@
-package edu.upb.transitourbano;
+package edu.upb.transitourbano.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import edu.upb.transitourbano.R;
 
 public class MainActivity extends AppCompatActivity {
 
