@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TransitoUrbano</string>
+    <string name="menu_map">Map</string>
+    <string name="menu_roadBlocks">Road Blocks</string>
+    <string name="menu_user">My Profile</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
