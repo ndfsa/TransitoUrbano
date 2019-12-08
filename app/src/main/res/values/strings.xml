@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TransitoUrbano</string>
+    <string name="list_of_blocked_roads">List of blocked roads</string>
 </resources>
