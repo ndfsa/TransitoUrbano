@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -20,7 +21,6 @@ import java.util.Map;
 
 import edu.upb.transitourbano.R;
 import edu.upb.transitourbano.ui.fragments.MapFragment;
-import edu.upb.transitourbano.ui.fragments.RoadblockFragment;
 import edu.upb.transitourbano.ui.fragments.UserFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                         loadFragment("mapFragment");
                         break;
                     case R.id.roadblock:
-                        loadFragment("roadblockFragment");
+                        goToRoadblockList();
                         break;
                     case R.id.user:
                         loadFragment("userFragment");
@@ -101,9 +101,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void initFragments() {
         mapFragments.put("mapFragment", new MapFragment());
-        mapFragments.put("roadblockFragment", new RoadblockFragment());
         mapFragments.put("userFragment", new UserFragment());
 
+    }
+
+    private void goToRoadblockList(){
+        Intent intent = new Intent(this, RoadBlockListActivity.class);
+        startActivity(intent);
     }
 
     private void loadFragment(String key) {

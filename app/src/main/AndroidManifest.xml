@@ -18,14 +18,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <activity android:name=".ui.activities.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
         <activity android:name=".ui.activities.RegisterActivity"></activity>
-
+        <activity android:name=".ui.activities.RoadBlockListActivity"></activity>
     </application>
 
 </manifest>

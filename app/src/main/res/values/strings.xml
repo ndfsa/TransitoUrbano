@@ -5,4 +5,5 @@
     <string name="menu_user">My Profile</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="list_of_blocked_roads">List of blocked roads</string>
 </resources>
