@@ -39,6 +39,9 @@ public class LoginActivity extends AppCompatActivity {
         this.context = this;
         initUI();
         initEvents();
+
+        emailEditText.setText("user@gmail.com");
+        passwordEditText.setText("12345");
     }
 
     private void initUI(){
@@ -58,15 +61,22 @@ public class LoginActivity extends AppCompatActivity {
                 if (!email.isEmpty() && !password.isEmpty()) {
                     if (!email.contains("@")) {
                         emailEditText.setError("Invalid Email");
-                    } else {
-
+                    }else if(email.equals("user@gmail.com")  && password.equals("12345")){
                         Intent intent = new Intent(context, MainActivity.class);
                         startActivity(intent);
 
                         Toast.makeText(context,
-                                "Bienvenido",
+                                "Welcome",
                                 Toast.LENGTH_SHORT)
                                 .show();
+
+
+                    } else {
+                        Toast.makeText(context,
+                                "User or password incorect!",
+                                Toast.LENGTH_SHORT)
+                                .show();
+
 
                     }
                 }else {
