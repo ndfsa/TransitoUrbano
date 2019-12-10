@@ -24,7 +24,6 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
         <activity android:name=".ui.activities.RegisterActivity"></activity>
-        <activity android:name=".ui.activities.RoadBlockListActivity"></activity>
     </application>
 
 </manifest>

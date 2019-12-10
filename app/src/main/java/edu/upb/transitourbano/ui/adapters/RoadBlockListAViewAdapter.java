@@ -1,4 +1,4 @@
-package edu.upb.transitourbano.adapters;
+package edu.upb.transitourbano.ui.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;

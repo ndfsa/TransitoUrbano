@@ -21,6 +21,7 @@ import java.util.Map;
 
 import edu.upb.transitourbano.R;
 import edu.upb.transitourbano.ui.fragments.MapFragment;
+import edu.upb.transitourbano.ui.fragments.RoadBlockListFragment;
 import edu.upb.transitourbano.ui.fragments.UserFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                         loadFragment("mapFragment");
                         break;
                     case R.id.roadblock:
-                        goToRoadblockList();
+                        loadFragment("roadBlockFragment");
                         break;
                     case R.id.user:
                         loadFragment("userFragment");
@@ -102,11 +103,12 @@ public class MainActivity extends AppCompatActivity {
     private void initFragments() {
         mapFragments.put("mapFragment", new MapFragment());
         mapFragments.put("userFragment", new UserFragment());
+        mapFragments.put("roadBlockFragment", new RoadBlockListFragment());
 
     }
 
     private void goToRoadblockList(){
-        Intent intent = new Intent(this, RoadBlockListActivity.class);
+        Intent intent = new Intent(this, RoadBlockListFragment.class);
         startActivity(intent);
     }
 
