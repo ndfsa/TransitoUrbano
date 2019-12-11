@@ -40,13 +40,11 @@
                 style="?android:attr/ratingBarStyleSmall"/>
         </LinearLayout>
     </LinearLayout>
-    <TextView
-        android:layout_margin="20dp"
+    <ListView
+        android:id="@+id/listViewDiscounts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="List"
-        android:textSize="100sp"
         android:gravity="center"
-        android:background="@color/colorPrimary_light"/>
+        android:layout_margin="20dp"/>
 
 </LinearLayout>

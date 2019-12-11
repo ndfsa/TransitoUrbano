@@ -4,6 +4,8 @@ public class Discount {
 
     private String name;
 
+    private int Id;
+
     private int discountRate;
 
     public Discount(String name, int discountRate) {
@@ -11,11 +13,15 @@ public class Discount {
         this.discountRate = discountRate;
     }
 
+    public int getId() {
+        return Id;
+    }
+
     public String getName() {
         return name;
     }
 
-    public int getDiscountRate() {
-        return discountRate;
+    public String getDiscountRate() {
+        return discountRate + "%";
     }
 }
