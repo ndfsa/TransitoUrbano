@@ -8,18 +8,20 @@ public class User {
 
     private String name;
 
-    private String reputation;
+    private String rating;
 
     private int image;
 
-    private Discount userDiscounts;
+    private List<Discount> discountList;
 
-    public User(int userID, String name, String reputation, int image, Discount userDiscounts) {
+
+
+    public User(int userID, String name, String rating, int image, List<Discount> userDiscounts) {
         this.userID = userID;
         this.name = name;
-        this.reputation = reputation;
+        this.rating = rating;
         this.image = image;
-        this.userDiscounts = userDiscounts;
+        this.discountList = userDiscounts;
     }
 
     public int getUserID() {
@@ -30,15 +32,15 @@ public class User {
         return name;
     }
 
-    public String getReputation() {
-        return reputation;
+    public String getRating() {
+        return rating;
     }
 
     public int getImage() {
         return image;
     }
 
-    public Discount getUserDiscounts() {
-        return userDiscounts;
+    public List<Discount> getUserDiscounts() {
+        return discountList;
     }
 }
