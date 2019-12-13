@@ -4,7 +4,9 @@ public class Discount {
 
     private String name;
 
-    private int Id;
+    private int uuid;
+
+    private String condition;
 
     private int discountRate;
 
@@ -14,14 +16,14 @@ public class Discount {
     }
 
     public int getId() {
-        return Id;
+        return uuid;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getDiscountRate() {
+    public String getDiscountRateString() {
         return discountRate + "%";
     }
 }
