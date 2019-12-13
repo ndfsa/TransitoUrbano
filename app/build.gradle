@@ -34,6 +34,9 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$rootProject.archLifecycleVersion"
 
+    //Circle ImageView
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
