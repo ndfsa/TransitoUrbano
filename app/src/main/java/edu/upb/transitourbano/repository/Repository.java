@@ -39,4 +39,9 @@ public class Repository implements  RepositoryImpl{
     public LiveData<Base> login(String email, String password) {
         return FirebaseRepository.getInstance().login(email,password);
     }
+
+    @Override
+    public LiveData<Base> register(String email, String password) {
+        return FirebaseRepository.getInstance().register(email,password);
+    }
 }
