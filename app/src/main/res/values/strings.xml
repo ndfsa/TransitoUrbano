@@ -6,4 +6,6 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="list_of_blocked_roads">List of blocked roads</string>
+    <string name="placeholder">PLACEHOLDER</string>
+    <string name="discount_list_text">Discount List:</string>
 </resources>

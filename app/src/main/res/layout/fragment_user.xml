@@ -6,19 +6,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary_light"
+        android:background="@drawable/discount_item_shape"
         android:orientation="horizontal"
         android:layout_margin="20dp"
         android:padding="20dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/dog"/>
+            android:src="@drawable/dog"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/colorPrimary_dark"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary_light"
+            android:background="@color/colorAccent"
             android:orientation="vertical"
             android:layout_marginLeft="20dp">
             <TextView
@@ -31,7 +35,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Usuario"/>
+                android:text="Ranking: "/>
             <RatingBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,11 +44,21 @@
                 style="?android:attr/ratingBarStyleSmall"/>
         </LinearLayout>
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/discount_list_text"
+        android:textSize="35sp" />
+
     <ListView
         android:id="@+id/listViewDiscounts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:layout_margin="20dp"/>
+        android:layout_margin="20dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10dp"/>
 
 </LinearLayout>
