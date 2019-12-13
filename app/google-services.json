@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "977501914",
+    "firebase_url": "https://transitourbano.firebaseio.com",
+    "project_id": "transitourbano",
+    "storage_bucket": "transitourbano.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:977501914:android:c8800bda8cb8d95ad9efe3",
+        "android_client_info": {
+          "package_name": "edu.upb.transitourbano"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "977501914-c68mdvri67ejd3te7qf8njmggk6276gb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.upb.transitourbano",
+            "certificate_hash": "e3a6c969111cda6deac5fde25c6ca578f76e4ec0"
+          }
+        },
+        {
+          "client_id": "977501914-vggrkrkrc1016h5jslgd2a1up4fc4stl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0SBk-9MsUjx7-Ur7lrAqZSv_GaWxTBEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "977501914-vggrkrkrc1016h5jslgd2a1up4fc4stl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
