@@ -1,8 +1,11 @@
 package edu.upb.transitourbano.repository;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import java.util.HashMap;
 import java.util.List;
 
 import edu.upb.transitourbano.models.Base;
@@ -18,9 +21,12 @@ public class ApiRepository {
     private UserAPI userAPI;
     private List<Discount> discountList;
     private DiscountsUtils discountsUtils;
-    private static final ApiRepository ourInstance = new ApiRepository();
+    private static ApiRepository ourInstance;
 
     public static ApiRepository getInstance() {
+        if (ourInstance == null) {
+            ourInstance = new ApiRepository();
+        }
         return ourInstance;
     }
 
@@ -31,22 +37,24 @@ public class ApiRepository {
         return discountList;
     }
 
-    public LiveData<Base> getUser(String email) {
+    public LiveData<Base> getUser() {
         final MutableLiveData<Base> results = new MutableLiveData<>();
-        userAPI.getDiscounts(email, "alt").enqueue(new Callback<User>() {
+        Log.e("error", "requested");
+        userAPI.getUser("media").enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful()) {
                     results.postValue(new Base(response.body()));
                 } else {
                     results.postValue(new Base(response.message(), new NullPointerException()));
+                    Log.e("error", "null pointer on base");
                 }
             }
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 results.postValue(new Base("onFailure", new Exception(t)));
+                Log.e("error", "failure on request");
             }
-
         });
         return results;
     }
