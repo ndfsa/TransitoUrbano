@@ -1,18 +1,21 @@
 package edu.upb.transitourbano.viewmodel;
 
-import java.util.List;
+import android.util.Log;
 
-import edu.upb.transitourbano.models.Discount;
-import edu.upb.transitourbano.repository.Repository;
+import androidx.lifecycle.LiveData;
+
+import edu.upb.transitourbano.models.Base;
+import edu.upb.transitourbano.repository.ApiRepository;
 
 public class UserViewModel {
-    private List<Discount> discountList;
+    private LiveData<Base> base;
 
     public UserViewModel() {
-        this.discountList = Repository.getInstance().getDiscounts();
     }
 
-    public List<Discount> getDiscountList() {
-        return discountList;
+    public LiveData<Base> getDiscountList() {
+        LiveData<Base> j = ApiRepository.getInstance().getUser();
+        Log.e("error", ""+j.getValue());
+        return j;
     }
 }

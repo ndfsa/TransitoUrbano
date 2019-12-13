@@ -53,7 +53,7 @@ public class UserDiscountAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
         viewHolder.textViewName.setText(this.discountList.get(i).getName());
-        viewHolder.textViewNum.setText(this.discountList.get(i).getDiscountRate());
+        viewHolder.textViewNum.setText(this.discountList.get(i).getDiscountRateString());
         return view;
     }
     static class ViewHolder {
