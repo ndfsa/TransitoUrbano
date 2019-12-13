@@ -53,4 +53,29 @@ public class FirebaseRepository {
         return results;
     }
 
+    public LiveData<Base> register(String email, String password) {
+        final MutableLiveData<Base> results = new MutableLiveData<>();
+        this.auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = auth.getCurrentUser();
+                            results.postValue(new Base(user));
+                        } else {
+                            results.postValue(new Base("Register Failure",
+                                    new NullPointerException()));
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        results.postValue(new Base("register.onFailure", e));
+                    }
+                });
+        return results;
+    }
+
+
 }
