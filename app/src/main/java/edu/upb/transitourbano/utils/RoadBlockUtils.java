@@ -12,15 +12,11 @@ public class RoadBlockUtils {
 
     public static List<RoadBlock> getBlockedRoads(){
         List<RoadBlock>blockedRoads = new ArrayList<>();
-        blockedRoads.add(new RoadBlock(1,"Here","Is Bloqued", "Andres", 45,89));
-        blockedRoads.add(new RoadBlock(2,"Here","Is Bloqued", "Gabo", 56,89));
-        blockedRoads.add(new RoadBlock(3,"Here","Is Bloqued", "Sergio", 45,84));
-        blockedRoads.add(new RoadBlock(4,"Here","Is Bloqued", "1", 45,84));
-        blockedRoads.add(new RoadBlock(5,"Here","Is Bloqued", "2", 45,84));
-        blockedRoads.add(new RoadBlock(5,"Here","Is Bloqued", "3", 45,84));
-        blockedRoads.add(new RoadBlock(5,"Here","Is Bloqued", "4", 45,84));
-        blockedRoads.add(new RoadBlock(5,"Here","Is Bloqued", "5", 45,84));
-        blockedRoads.add(new RoadBlock(5,"Here","Is Bloqued", "6", 45,84));
+        blockedRoads.add(new RoadBlock(1,"El Prado","Protesta", "Andres", 45,89));
+        blockedRoads.add(new RoadBlock(2,"Achumani calle 13","Contrucción obstruye el paso", "Gabriel", 56,89));
+        blockedRoads.add(new RoadBlock(3,"Obrajes calle 10","Bloqueo de estudiantes", "Sergio", 45,84));
+        blockedRoads.add(new RoadBlock(4,"Achocalla","Caseta de peaje destruida", "Kevin", 45,84));
+
 
 
         return blockedRoads;
