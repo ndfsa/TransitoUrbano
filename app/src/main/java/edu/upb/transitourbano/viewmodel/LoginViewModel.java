@@ -36,8 +36,24 @@ public class LoginViewModel extends AndroidViewModel {
                 }
             }
         });
-
-
         return result;
     }
+
+
+    public LiveData<Base> register(final String email, String password){
+        final MutableLiveData<Base>result = new MutableLiveData<>();
+        repository.register(email, password).observeForever(new Observer<Base>() {
+            @Override
+            public void onChanged(Base base) {
+                if (base.isSuccess()) {
+                    UserLogged userLogged = new UserLogged(email);
+                    result.postValue(new Base(userLogged));
+                } else {
+                    result.postValue(base);
+                }
+            }
+        });
+        return result;
+    }
+
 }
