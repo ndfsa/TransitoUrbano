@@ -1,11 +1,19 @@
 package edu.upb.transitourbano.repository;
 
+import androidx.lifecycle.LiveData;
+
+import edu.upb.transitourbano.models.repository.Base;
+import edu.upb.transitourbano.repository.firebase.FirebaseRepository;
 import java.util.List;
 
 import edu.upb.transitourbano.models.Discount;
 import edu.upb.transitourbano.utils.DiscountsUtils;
 
-public class Repository {
+public class Repository implements  RepositoryImpl{
+
+    public static Repository instance;
+
+
     private static final Repository ourInstance = new Repository();
 
     private List<Discount> discountList;
@@ -13,7 +21,10 @@ public class Repository {
     private DiscountsUtils discountsUtils;
 
     public static Repository getInstance() {
-        return ourInstance;
+        if (instance == null){
+            instance = new Repository();
+        }
+        return instance;
     }
     private Repository() {
         this.discountsUtils = new DiscountsUtils();
@@ -22,5 +33,10 @@ public class Repository {
 
     public List<Discount> getDiscounts(){
         return discountList;
+    }
+
+    @Override
+    public LiveData<Base> login(String email, String password) {
+        return FirebaseRepository.getInstance().login(email,password);
     }
 }
