@@ -1,0 +1,11 @@
+<resources>
+    <!--
+
+    https://console.developers.google.com/apis/credentials?project=transitourbano-262300
+    SHA-1 certificate fingerprint:
+    Andres: D9:81:7A:E5:B8:AC:37:E5:40:F9:8E:23:46:03:43:A2:86:87:C4:3F
+
+
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAAirnXRrFlIqhkdsFWL0NjxBjWyLM4LU8</string>
+</resources>
