@@ -22,6 +22,7 @@ import java.util.Map;
 import edu.upb.transitourbano.R;
 import edu.upb.transitourbano.ui.fragments.MapFragment;
 import edu.upb.transitourbano.ui.fragments.RoadBlockListFragment;
+import edu.upb.transitourbano.ui.fragments.TopRoadBlockFragment;
 import edu.upb.transitourbano.ui.fragments.UserFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -87,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.roadblock:
                         loadFragment("roadBlockFragment");
                         break;
+                    case R.id.toproadblock:
+                        loadFragment("topRoadBlockFragment");
+                        break;
                     case R.id.user:
                         loadFragment("userFragment");
                         break;
@@ -104,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
         mapFragments.put("mapFragment", new MapFragment());
         mapFragments.put("userFragment", new UserFragment());
         mapFragments.put("roadBlockFragment", new RoadBlockListFragment());
+        mapFragments.put("topRoadBlockFragment", new TopRoadBlockFragment());
 
     }
 
