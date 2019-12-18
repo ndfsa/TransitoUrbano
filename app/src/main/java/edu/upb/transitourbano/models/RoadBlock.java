@@ -19,6 +19,10 @@ public class RoadBlock implements ClusterItem {
         return latLng;
     }
 
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
     public void setLatLng(LatLng latLng) {
         this.latLng = latLng;
     }
