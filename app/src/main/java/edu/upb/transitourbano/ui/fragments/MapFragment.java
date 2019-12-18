@@ -1,6 +1,8 @@
 package edu.upb.transitourbano.ui.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,17 +16,26 @@ import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.maps.android.clustering.ClusterItem;
+import com.google.maps.android.clustering.ClusterManager;
 
 import edu.upb.transitourbano.R;
+import edu.upb.transitourbano.models.MyClusterItem;
+import edu.upb.transitourbano.models.RoadBlock;
 import edu.upb.transitourbano.utils.Constants;
 
 public class MapFragment extends BaseFragment implements OnMapReadyCallback {
 
     private GoogleMap map;
     private MapView mapView;
+    private Context context;
+    private RoadBlock roadBlock;
+    private FloatingActionButton floatingActionButton;
 
-    public MapFragment() {
+    public MapFragment(Context context) {
         super();
+        this.context = context;
     }
 
     @Nullable
@@ -46,6 +57,52 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
 
         LatLng maker = new LatLng(Constants.DEFAULT_LAT, Constants.DEFAULT_LNG);
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(maker, Constants.DEFAULT_ZOOM));
+
+        final ClusterManager<ClusterItem> clusterManager = new ClusterManager<>(context, map);
+
+        if(false){
+            map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                @Override
+                public void onMapClick(LatLng latLng) {
+                    //map.addMarker(new MarkerOptions().position(latLng));
+                    clusterManager.addItem(new RoadBlock(1, "hello", "world", "hugo", latLng));
+                    clusterManager.cluster();
+                }
+            });
+        }else{
+            map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                @Override
+                public void onMapClick(LatLng latLng) {
+                    //map.addMarker(new MarkerOptions().position(latLng));
+                    if (roadBlock == null){
+                        roadBlock = new RoadBlock(1, "hello", "world", "hugo", latLng);
+                        clusterManager.addItem(roadBlock);
+                    }else{
+                        clusterManager.removeItem(roadBlock);
+                        roadBlock = null;
+                    }
+                    clusterManager.cluster();
+                }
+            });
+        }
+
+        map.setOnCameraMoveListener(new GoogleMap.OnCameraMoveListener() {
+            @Override
+            public void onCameraMove() {
+                clusterManager.cluster();
+            }
+        });
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(roadBlock == null){
+                    Log.e("Map","pressed: null");
+                }else{
+                    Log.e("Map","pressed: " + roadBlock.getLatLng().latitude + ", "+ roadBlock.getLatLng().longitude);
+                }
+            }
+        });
     }
 
     @Override
@@ -55,6 +112,7 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
 
     private void initUI(View view) {
         mapView = view.findViewById(R.id.map);
+        floatingActionButton = view.findViewById(R.id.fab);
 
     }
 
@@ -68,7 +126,4 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
         }
         mapView.getMapAsync(this);
     }
-
-
-
 }
