@@ -13,10 +13,11 @@ import com.google.firebase.auth.FirebaseUser;
 import edu.upb.transitourbano.models.repository.Base;
 import edu.upb.transitourbano.models.ui.UserLogged;
 import edu.upb.transitourbano.repository.Repository;
+import edu.upb.transitourbano.repository.RepositoryImpl;
 
 public class LoginViewModel extends AndroidViewModel {
 
-    private Repository repository;
+    private RepositoryImpl repository;
 
     public LoginViewModel(@NonNull Application application) {
         super(application);
