@@ -1,6 +1,8 @@
 package edu.upb.transitourbano.ui.fragments;
 
 import android.content.Context;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +21,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.maps.android.clustering.ClusterItem;
 import com.google.maps.android.clustering.ClusterManager;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 import edu.upb.transitourbano.R;
 import edu.upb.transitourbano.models.MyClusterItem;
@@ -75,7 +81,16 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
                 public void onMapClick(LatLng latLng) {
                     //map.addMarker(new MarkerOptions().position(latLng));
                     if (roadBlock == null){
-                        roadBlock = new RoadBlock(1, "hello", "world", "hugo", latLng);
+                        roadBlock = new RoadBlock(1, "Hello", "world", "hugo", latLng);
+                        Geocoder geocoder = new Geocoder(context, Locale.getDefault());
+                        List<Address> addresses = null;
+                        try {
+                            addresses = geocoder.getFromLocation(roadBlock.getLatLng().latitude, roadBlock.getLatLng().longitude, 1);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        roadBlock.setAdress(addresses.toString());
+                        Log.e("Map","pressed: " + roadBlock.getAdress());
                         clusterManager.addItem(roadBlock);
                     }else{
                         clusterManager.removeItem(roadBlock);
