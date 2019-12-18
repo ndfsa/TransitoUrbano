@@ -1,6 +1,9 @@
 package edu.upb.transitourbano.models;
 
-public class RoadBlock {
+import com.google.android.gms.maps.model.LatLng;
+import com.google.maps.android.clustering.ClusterItem;
+
+public class RoadBlock implements ClusterItem {
 
     private int id;
 
@@ -10,19 +13,29 @@ public class RoadBlock {
 
     private String informant;
 
-    private double lat;
+    private LatLng latLng;
 
-    private double lng;
+    public LatLng getLatLng() {
+        return latLng;
+    }
 
-    public RoadBlock(int id, String adress, String info, String informant, double lat, double lng) {
+    public void setLatLng(LatLng latLng) {
+        this.latLng = latLng;
+    }
+
+    public RoadBlock(int id, String adress, String info, String informant, LatLng latLng) {
         this.id = id;
         this.adress = adress;
         this.info = info;
         this.informant = informant;
-        this.lat = lat;
-        this.lng = lng;
+        this.latLng = latLng;
     }
-
+    public RoadBlock(int id, String adress, String info, String informant) {
+        this.id = id;
+        this.adress = adress;
+        this.info = info;
+        this.informant = informant;
+    }
 
     public int getId() {
         return id;
@@ -40,11 +53,18 @@ public class RoadBlock {
         return informant;
     }
 
-    public double getLat() {
-        return lat;
+    @Override
+    public LatLng getPosition() {
+        return latLng;
     }
 
-    public double getLng() {
-        return lng;
+    @Override
+    public String getTitle() {
+        return adress;
+    }
+
+    @Override
+    public String getSnippet() {
+        return info;
     }
 }

@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initFragments() {
-        mapFragments.put("mapFragment", new MapFragment());
+        mapFragments.put("mapFragment", new MapFragment(this));
         mapFragments.put("userFragment", new UserFragment());
         mapFragments.put("roadBlockFragment", new RoadBlockListFragment());
 
