@@ -32,10 +32,11 @@
                 android:gravity="center"
                 android:text="Floripondio"
                 android:textSize="25sp"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ranking: "/>
+                android:text="@string/ranking" />
             <RatingBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
