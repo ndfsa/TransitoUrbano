@@ -1,6 +1,7 @@
 package edu.upb.transitourbano.repository;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
@@ -18,22 +19,20 @@ public class Repository implements  RepositoryImpl{
     public static Repository instance;
     private LocalRepository local;
 
-
-    private static final Repository ourInstance = new Repository();
-
     private List<Discount> discountList;
 
     private DiscountsUtils discountsUtils;
 
     public static Repository getInstance(Application application) {
         if (instance == null){
-            instance = new Repository();
+            instance = new Repository(application);
         }
         return instance;
     }
-    private Repository() {
+    private Repository(Application application) {
         this.discountsUtils = new DiscountsUtils();
         this.discountList = discountsUtils.getDiscountList();
+        this.local = new LocalRepository(application);
     }
 
     public List<Discount> getDiscounts(){

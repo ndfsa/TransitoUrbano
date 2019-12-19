@@ -71,4 +71,6 @@ public class UserFragment extends BaseFragment {
             }
         });
     }
+
+
 }

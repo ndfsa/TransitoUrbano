@@ -13,7 +13,7 @@ import edu.upb.transitourbano.repository.local.dao.TopRoadBlockDao;
 @Database(entities = {TopRoadBlock.class}, version = 1)
 public abstract class TransitoUrbanoDB extends RoomDatabase {
 
-    public abstract TopRoadBlockDao userDao();
+    public abstract TopRoadBlockDao topRoadBlockDao();
 
     private static volatile TransitoUrbanoDB INSTANCE;
 

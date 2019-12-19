@@ -1,6 +1,7 @@
 package edu.upb.transitourbano.repository.local;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
@@ -12,6 +13,7 @@ import edu.upb.transitourbano.repository.local.db.TransitoUrbanoDB;
 public class LocalRepository {
     private TransitoUrbanoDB db;
 
+    private static final String LOG = TopRoadBlock.class.getSimpleName();
 
     public LocalRepository(Application application) {
         db = TransitoUrbanoDB.getDatabase(application);
@@ -22,7 +24,8 @@ public class LocalRepository {
                 new Runnable() {
                     @Override
                     public void run() {
-                        db.userDao().insert(topRoadBlock);
+                        db.topRoadBlockDao().insert(topRoadBlock);
+                        Log.e("LRepo","id: "+topRoadBlock.getId());
                     }
                 }
         );
@@ -30,6 +33,6 @@ public class LocalRepository {
     }
 
     public LiveData<List<TopRoadBlock>> getAll() {
-        return db.userDao().getAll();
+        return db.topRoadBlockDao().getAll();
     }
 }
