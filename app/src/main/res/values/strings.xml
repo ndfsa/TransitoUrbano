@@ -8,4 +8,9 @@
     <string name="list_of_blocked_roads">List of blocked roads</string>
     <string name="placeholder">PLACEHOLDER</string>
     <string name="discount_list_text">Discount List:</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="ranking">Ranking:</string>
 </resources>

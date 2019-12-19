@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TransitoUrbano</string>
+    <string name="menu_map">Mapa</string>
+    <string name="menu_roadBlocks">Calles Bloqueadas</string>
+    <string name="menu_user">Mi Perfil</string>
+    <string name="open">Abrir</string>
+    <string name="close">Cerrar</string>
+    <string name="list_of_blocked_roads">Lista de calles bloqueadas</string>
+    <string name="placeholder">PLACEHOLDER</string>
+    <string name="discount_list_text">Lista de descuentos:</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="register">Registrate</string>
+    <string name="ranking">Reputación:</string>
+</resources>
