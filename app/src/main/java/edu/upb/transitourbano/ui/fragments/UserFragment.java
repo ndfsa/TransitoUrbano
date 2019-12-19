@@ -38,8 +38,8 @@ public class UserFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        textView.setText(UserLogged.getInstance().getEmail());
-        ratingBar.setRating((float)UserLogged.getInstance().getRating());
+        textView.setText(userViewModel.getEmail());
+        ratingBar.setRating((float)userViewModel.getRating());
 
     }
 

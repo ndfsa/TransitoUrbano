@@ -33,6 +33,7 @@ import edu.upb.transitourbano.models.MyClusterItem;
 import edu.upb.transitourbano.models.RoadBlock;
 import edu.upb.transitourbano.ui.activities.AddRoadBlockActivity;
 import edu.upb.transitourbano.utils.Constants;
+import edu.upb.transitourbano.viewmodel.UserViewModel;
 
 public class MapFragment extends BaseFragment implements OnMapReadyCallback {
 
@@ -41,6 +42,8 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
     private Context context;
     private RoadBlock roadBlock;
     private FloatingActionButton floatingActionButton;
+    private UserViewModel userViewModel;
+    private int cont = 1;
 
     public MapFragment(Context context) {
         super();
@@ -51,6 +54,7 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_map, container, false);
+        userViewModel = new UserViewModel();
         initUI(view);
         initMap(savedInstanceState);
         return view;
@@ -69,12 +73,12 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
 
         final ClusterManager<ClusterItem> clusterManager = new ClusterManager<>(context, map);
 
-        if(false){
+        if(userViewModel.getEmail().equals("debug@gmail.com")){
             map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                 @Override
                 public void onMapClick(LatLng latLng) {
                     //map.addMarker(new MarkerOptions().position(latLng));
-                    clusterManager.addItem(new RoadBlock(1, "hello", "world", "hugo", latLng));
+                    clusterManager.addItem(new RoadBlock(cont, "hello", "world", "hugo", latLng));
                     clusterManager.cluster();
                 }
             });

@@ -18,4 +18,5 @@
     <string name="create_road_block">Create road block</string>
     <string name="road_block_information_hint">Road block information</string>
     <string name="road_block_address_hint">Road block address</string>
+    <string name="promotion">For one use only</string>
 </resources>
