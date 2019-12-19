@@ -1,7 +1,5 @@
 package edu.upb.transitourbano.repository.firebase;
 
-import android.app.Application;
-import android.content.res.Resources;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -23,7 +21,6 @@ import com.google.gson.Gson;
 import java.util.LinkedList;
 import java.util.List;
 
-import edu.upb.transitourbano.R;
 import edu.upb.transitourbano.models.Discount;
 import edu.upb.transitourbano.models.User;
 import edu.upb.transitourbano.models.repository.Base;
@@ -57,7 +54,7 @@ public class FirebaseRepository{
                             FirebaseUser user = auth.getCurrentUser();
                             UserLogged.getInstance().setEmail(user.getEmail());
                             String path = "users/" + user.getEmail().split("@")[0];
-                            subscribeToValues(path);
+                            subscribeToValuesUser(path);
                             Log.e("user is", user.getEmail() + " subscribed to: " + path);
                             results.postValue(new Base(user));
 
@@ -114,7 +111,7 @@ public class FirebaseRepository{
         return result;
     }
 
-    public LiveData<Base> subscribeToValues(String path) {
+    public LiveData<Base> subscribeToValuesUser(String path) {
         final MutableLiveData<Base> result = new MutableLiveData<>();
         firebaseDatabase.getReference(path).addValueEventListener(new ValueEventListener() {
             @Override
@@ -129,6 +126,22 @@ public class FirebaseRepository{
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.e("database error", databaseError.getMessage());
+            }
+        });
+        return result;
+    }
+
+    public LiveData<Base> subscribeToValues(String path) {
+        final MutableLiveData<Base> result = new MutableLiveData<>();
+        firebaseDatabase.getReference(path).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                result.postValue(new Base(dataSnapshot.getValue()));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("Roadblocks db error", databaseError.getMessage());
             }
         });
         return result;

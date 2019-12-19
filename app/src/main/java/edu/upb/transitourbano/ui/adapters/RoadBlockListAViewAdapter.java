@@ -35,7 +35,7 @@ public class RoadBlockListAViewAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return this.roadBlockList.get(position).getId();
+        return 1;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class RoadBlockListAViewAdapter extends BaseAdapter {
         }
 
         RoadBlock roadBlock = this.roadBlockList.get(position);
-        viewHolder.textViewAdress.setText(roadBlock.getAdress());
+        viewHolder.textViewAdress.setText(roadBlock.getAddress());
         viewHolder.textViewInfo.setText(roadBlock.getInfo());
         viewHolder.textViewInformant.setText(roadBlock.getInformant());
         return view;
