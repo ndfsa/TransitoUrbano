@@ -4,6 +4,7 @@ package edu.upb.transitourbano.models;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "top_road_block_table")
@@ -23,6 +24,17 @@ public class TopRoadBlock {
     @ColumnInfo(name = "proba")
     private String proba;
 
+    public TopRoadBlock() {
+    }
+
+    @Ignore
+    public TopRoadBlock(int id, String adress, String rank, String proba) {
+        this.id = id;
+        this.adress = adress;
+        this.rank = rank;
+        this.proba = proba;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -39,7 +51,7 @@ public class TopRoadBlock {
         this.proba = proba;
     }
 
-    public int getId() {
+    public int  getId() {
         return id;
     }
 

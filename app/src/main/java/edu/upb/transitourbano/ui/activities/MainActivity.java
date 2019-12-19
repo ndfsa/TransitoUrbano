@@ -8,21 +8,26 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Observer;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import edu.upb.transitourbano.R;
 import edu.upb.transitourbano.models.TopRoadBlock;
+import edu.upb.transitourbano.models.User;
 import edu.upb.transitourbano.ui.fragments.MapFragment;
 import edu.upb.transitourbano.ui.fragments.RoadBlockListFragment;
 import edu.upb.transitourbano.ui.fragments.TopRoadBlockFragment;
@@ -37,10 +42,6 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private NavigationView navigationView;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-
-    private TopRoadBlockViewModel viewModel;
-    private Button dbButtom;
-    private int count =0;
 
 
     private Map<String, Fragment> mapFragments = new HashMap<>();
@@ -57,18 +58,7 @@ public class MainActivity extends AppCompatActivity {
         initFragments();
         loadFragment("mapFragment");
 
-        dbButtom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                count ++;
-                TopRoadBlock topRoadBlock = new TopRoadBlock();
-                topRoadBlock.setId(count);
-                topRoadBlock.setAdress("Dir "+count);
-                topRoadBlock.setProba("50%");
-                topRoadBlock.setRank("#8");
-                viewModel.register(topRoadBlock);
-            }
-        });
+
 
 
     }
@@ -78,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         this.appBarLayout = findViewById(R.id.appBarLayout);
         this.toolbar = findViewById(R.id.toolbar);
         this.navigationView = findViewById(R.id.navigationView);
+
     }
     private void configureNavigationDrawer() {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -149,5 +140,4 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
         }
     }
-
 }
