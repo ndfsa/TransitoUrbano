@@ -10,6 +10,7 @@ import java.util.List;
 
 import edu.upb.transitourbano.models.RoadBlock;
 import edu.upb.transitourbano.models.repository.Base;
+import edu.upb.transitourbano.models.ui.RoadBlockList;
 import edu.upb.transitourbano.repository.firebase.FirebaseRepository;
 
 public class RoadblockViewModel extends AndroidViewModel {
@@ -26,5 +27,10 @@ public class RoadblockViewModel extends AndroidViewModel {
         FirebaseRepository.getInstance().setValue("roadblocks/" + dbIndex, roadblock);
     }
 
-    //public void
+    public List<RoadBlock> getViewRoadBlocks(){
+        return RoadBlockList.getInstance().getRoadBlockList();
+    }
+    public void setViewRoadBlocks(List<RoadBlock> viewRoadBlocks){
+        RoadBlockList.getInstance().setRoadBlockList(viewRoadBlocks);
+    }
 }

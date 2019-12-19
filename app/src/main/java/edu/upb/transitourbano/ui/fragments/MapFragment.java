@@ -144,6 +144,7 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
                         }
                         Log.e("Map","pressed: " + roadBlock.getAddress());
                         marker = map.addMarker(new MarkerOptions().position(roadBlock.getPosition()).title(roadBlock.getSnippet()));
+                        marker.setSnippet(roadBlock.getAddress());
                         marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
                     } else {
                         roadBlock = null;
@@ -163,6 +164,7 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
                 String values = gson.toJson(base.getData());
                 Log.e("Roadblocks", values);
                 roadBlockList = gson.fromJson(values, RoadblockList);
+                roadblockViewModel.setViewRoadBlocks(roadBlockList);
                 clusterManager.clearItems();
                 fillRoadblocksOnMap();
                 clusterManager.cluster();
@@ -198,6 +200,7 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
                     intent.putExtra("roadblock", new Gson().toJson(roadBlock));
                     intent.putExtra("dbIndex", (long)roadBlockList.size());
                     marker.remove();
+                    roadBlock = null;
                     getActivity().startActivity(intent);
                 }
             }

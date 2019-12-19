@@ -107,11 +107,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void goToRoadblockList(){
-        Intent intent = new Intent(this, RoadBlockListFragment.class);
-        startActivity(intent);
-    }
-
     private void loadFragment(String key) {
         if (mapFragments.containsKey(key)) {
             FragmentManager fm = getSupportFragmentManager();
