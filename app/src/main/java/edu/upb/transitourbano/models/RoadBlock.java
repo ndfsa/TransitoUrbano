@@ -1,60 +1,38 @@
 package edu.upb.transitourbano.models;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.database.Exclude;
 import com.google.maps.android.clustering.ClusterItem;
 
 public class RoadBlock implements ClusterItem {
 
     private long uuid;
-
-    private String adress;
-
+    private String address;
     private String info;
-
     private String informant;
+    private LatLng position;
 
-    private double lat;
-
-    private double lng;
-
-    public double getLat() {
-        return lat;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public double getLng() {
-        return lng;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-
-    public void setLatLng(double lat, double lng) {
-        this.lat = lat;
-        this.lng = lng;
-    }
-
-    public RoadBlock(long uuid, String adress, String info, String informant, double lat, double lng) {
+    public RoadBlock(long uuid, String address, String info, String informant, LatLng position) {
         this.uuid = uuid;
-        this.adress = adress;
+        this.address = address;
         this.info = info;
         this.informant = informant;
-        this.lat = lat;
-        this.lng = lng;
+        this.position = position;
+
     }
-    public RoadBlock(long uuid, String adress, String info, String informant) {
+    public RoadBlock(long uuid, String address, String info, String informant) {
         this.uuid = uuid;
-        this.adress = adress;
+        this.address = address;
         this.info = info;
         this.informant = informant;
     }
 
-    public int getId() {
-        return 1;
-    }
-
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
     public String getInfo() {
@@ -69,18 +47,24 @@ public class RoadBlock implements ClusterItem {
         return uuid;
     }
 
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
     @Override
     public LatLng getPosition() {
-        return new LatLng(lat, lng);
+        return position;
     }
 
+    @Exclude
     @Override
     public String getTitle() {
-        return adress;
+        return address;
     }
 
+    @Exclude
     @Override
     public String getSnippet() {
-        return info;
+        return "Possible roadblock";
     }
 }

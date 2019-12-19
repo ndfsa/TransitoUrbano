@@ -4,10 +4,12 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
 import edu.upb.transitourbano.models.RoadBlock;
+import edu.upb.transitourbano.models.repository.Base;
 import edu.upb.transitourbano.repository.firebase.FirebaseRepository;
 
 public class RoadblockViewModel extends AndroidViewModel {
@@ -16,13 +18,12 @@ public class RoadblockViewModel extends AndroidViewModel {
         super(application);
     }
 
-    public List<RoadBlock> getRoadblocks(){
-        FirebaseRepository.getInstance().subscribeToValues("roadblocks");
-        return null;
+    public LiveData<Base> getRoadblocks(){
+        return FirebaseRepository.getInstance().subscribeToValues("roadblocks");
     }
 
-    public void setRoadblock(RoadBlock roadblock){
-        FirebaseRepository.getInstance().setValue("roadblocks/" + roadblock.getUuid(),roadblock);
+    public void setRoadblock(RoadBlock roadblock, long dbIndex){
+        FirebaseRepository.getInstance().setValue("roadblocks/" + dbIndex, roadblock);
     }
 
     //public void
