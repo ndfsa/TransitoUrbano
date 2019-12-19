@@ -13,9 +13,6 @@ public class Repository implements  RepositoryImpl{
 
     public static Repository instance;
 
-
-    private static final Repository ourInstance = new Repository();
-
     private List<Discount> discountList;
 
     private DiscountsUtils discountsUtils;

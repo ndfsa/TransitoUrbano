@@ -3,10 +3,8 @@ package edu.upb.transitourbano.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.upb.transitourbano.R;
-import edu.upb.transitourbano.models.Discount;
 import edu.upb.transitourbano.models.RoadBlock;
-import edu.upb.transitourbano.models.User;
+
 
 public class RoadBlockUtils {
 

@@ -4,50 +4,25 @@ import java.util.List;
 
 public class User {
 
-    private int userID;
-
-    private String name;
-
-    private String rating;
-
-    private int image;
+    private double rating;
 
     private String email;
 
     private List<Discount> discountList;
 
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public User(int userID, String name, String rating, int image, String email, List<Discount> userDiscounts) {
-        this.userID = userID;
-        this.name = name;
+    public User(double rating, String email, List<Discount> userDiscounts) {
         this.rating = rating;
-        this.image = image;
         this.email = email;
         this.discountList = userDiscounts;
     }
 
-    public int getUserID() {
-        return userID;
+    public String getEmail() {
+        return email;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getRating() {
+    public double getRating() {
         return rating;
-    }
-
-    public int getImage() {
-        return image;
     }
 
     public List<Discount> getUserDiscounts() {
