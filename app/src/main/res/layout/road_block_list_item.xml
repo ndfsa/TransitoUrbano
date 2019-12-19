@@ -26,7 +26,7 @@
                 android:gravity="center"
                 android:textColor="@color/colorPrimary_text"
                 android:textSize="20sp"
-                tools:text="Pokemon Name Example" />
+                tools:text="Placeholder" />
 
             <TextView
                 android:id="@+id/textViewInfo"
@@ -35,7 +35,7 @@
                 android:gravity="center"
                 android:textColor="@color/colorPrimary_text"
                 android:textSize="20sp"
-                tools:text="Pokemon Name Example" />
+                tools:text="Placeholder" />
 
             <TextView
                 android:id="@+id/textViewInformant"
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="17sp"
-                tools:text="Pokemon Type Example" />
+                tools:text="Placeholder" />
         </LinearLayout>
     </LinearLayout>
 
