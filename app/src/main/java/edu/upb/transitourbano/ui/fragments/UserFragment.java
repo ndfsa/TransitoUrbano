@@ -9,8 +9,10 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 
 import edu.upb.transitourbano.R;
+import edu.upb.transitourbano.models.User;
 import edu.upb.transitourbano.models.ui.UserLogged;
 import edu.upb.transitourbano.ui.adapters.UserDiscountAdapter;
 import edu.upb.transitourbano.viewmodel.UserViewModel;
@@ -29,7 +31,7 @@ public class UserFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, container, false);
-        userViewModel = new UserViewModel();
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         initUI(view);
         populateList();
         return view;

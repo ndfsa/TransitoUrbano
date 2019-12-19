@@ -1,13 +1,19 @@
 package edu.upb.transitourbano.viewmodel;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+
 import java.util.List;
 
 import edu.upb.transitourbano.models.Discount;
 import edu.upb.transitourbano.models.ui.UserLogged;
 
-public class UserViewModel {
+public class UserViewModel extends AndroidViewModel {
 
-    public UserViewModel() {
+    public UserViewModel(@NonNull Application application) {
+        super(application);
     }
 
     public List<Discount> getDiscountList(){

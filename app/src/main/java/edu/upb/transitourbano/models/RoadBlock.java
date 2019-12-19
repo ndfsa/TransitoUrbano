@@ -5,7 +5,7 @@ import com.google.maps.android.clustering.ClusterItem;
 
 public class RoadBlock implements ClusterItem {
 
-    private int id;
+    private long uuid;
 
     private String adress;
 
@@ -13,36 +13,44 @@ public class RoadBlock implements ClusterItem {
 
     private String informant;
 
-    private LatLng latLng;
+    private double lat;
 
-    public LatLng getLatLng() {
-        return latLng;
+    private double lng;
+
+    public double getLat() {
+        return lat;
+    }
+
+    public double getLng() {
+        return lng;
     }
 
     public void setAdress(String adress) {
         this.adress = adress;
     }
 
-    public void setLatLng(LatLng latLng) {
-        this.latLng = latLng;
+    public void setLatLng(double lat, double lng) {
+        this.lat = lat;
+        this.lng = lng;
     }
 
-    public RoadBlock(int id, String adress, String info, String informant, LatLng latLng) {
-        this.id = id;
+    public RoadBlock(long uuid, String adress, String info, String informant, double lat, double lng) {
+        this.uuid = uuid;
         this.adress = adress;
         this.info = info;
         this.informant = informant;
-        this.latLng = latLng;
+        this.lat = lat;
+        this.lng = lng;
     }
-    public RoadBlock(int id, String adress, String info, String informant) {
-        this.id = id;
+    public RoadBlock(long uuid, String adress, String info, String informant) {
+        this.uuid = uuid;
         this.adress = adress;
         this.info = info;
         this.informant = informant;
     }
 
     public int getId() {
-        return id;
+        return 1;
     }
 
     public String getAdress() {
@@ -57,9 +65,13 @@ public class RoadBlock implements ClusterItem {
         return informant;
     }
 
+    public long getUuid() {
+        return uuid;
+    }
+
     @Override
     public LatLng getPosition() {
-        return latLng;
+        return new LatLng(lat, lng);
     }
 
     @Override
