@@ -10,6 +10,13 @@ public class Discount {
 
     private int discountRate;
 
+    public Discount(String name, String uuid, String condition, int discountRate) {
+        this.name = name;
+        this.uuid = uuid;
+        this.condition = condition;
+        this.discountRate = discountRate;
+    }
+
     public Discount(String name, int discountRate) {
         this.name = name;
         this.discountRate = discountRate;

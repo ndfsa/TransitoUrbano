@@ -11,10 +11,10 @@ public class User {
     private List<Discount> discountList;
 
 
-    public User(double rating, String email, List<Discount> userDiscounts) {
+    public User(double rating, String email, List<Discount> discountList) {
         this.rating = rating;
         this.email = email;
-        this.discountList = userDiscounts;
+        this.discountList = discountList;
     }
 
     public String getEmail() {
@@ -25,7 +25,7 @@ public class User {
         return rating;
     }
 
-    public List<Discount> getUserDiscounts() {
+    public List<Discount> getDiscountList() {
         return discountList;
     }
 }

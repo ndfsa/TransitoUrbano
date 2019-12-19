@@ -17,4 +17,8 @@ public class UserViewModel {
     public double getRating(){
         return UserLogged.getInstance().getRating();
     }
+
+    public String getEmail(){
+        return UserLogged.getInstance().getEmail();
+    }
 }

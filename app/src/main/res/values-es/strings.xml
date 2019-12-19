@@ -19,4 +19,5 @@
     <string name="create_road_block">Crear bloqueo</string>
     <string name="road_block_information_hint">Informacion de bloqueo</string>
     <string name="road_block_address_hint">Direccion de bloqueo</string>
+    <string name="promotion">Para un solo uso.</string>
 </resources>

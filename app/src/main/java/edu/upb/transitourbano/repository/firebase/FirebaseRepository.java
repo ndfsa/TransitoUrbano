@@ -1,5 +1,7 @@
 package edu.upb.transitourbano.repository.firebase;
 
+import android.app.Application;
+import android.content.res.Resources;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -18,6 +20,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
+import java.util.LinkedList;
+import java.util.List;
+
+import edu.upb.transitourbano.R;
+import edu.upb.transitourbano.models.Discount;
 import edu.upb.transitourbano.models.User;
 import edu.upb.transitourbano.models.repository.Base;
 import edu.upb.transitourbano.models.ui.UserLogged;
@@ -70,16 +77,23 @@ public class FirebaseRepository{
         return results;
     }
 
-    public LiveData<Base> register(String email, String password) {
+    public LiveData<Base> register(final String email, String password) {
         final MutableLiveData<Base> results = new MutableLiveData<>();
         this.auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            FirebaseUser user = auth.getCurrentUser();
-                            results.postValue(new Base(user));
+                            FirebaseUser firebaseUser = auth.getCurrentUser();
+                            List<Discount> discountList = new LinkedList<>();
+                            discountList.add(new Discount("Puma", "ds01", "For one use only", 20));
+                            User user = new User(0, email, discountList);
+                            String path = "users/" + user.getEmail().split("@")[0];
+                            setValue(path, user);
+                            Log.e("new user is",  new Gson().toJson(user)+ " path: " + path);
+                            results.postValue(new Base(firebaseUser));
                         } else {
+                            Log.e("create error", "maybe null");
                             results.postValue(new Base("Register Failure",
                                     new NullPointerException()));
                         }
@@ -107,7 +121,7 @@ public class FirebaseRepository{
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String values = new Gson().toJson(dataSnapshot.getValue());
                 User user = new Gson().fromJson(values, User.class);
-                UserLogged.getInstance().setDiscountList(user.getUserDiscounts());
+                UserLogged.getInstance().setDiscountList(user.getDiscountList());
                 UserLogged.getInstance().setRating(user.getRating());
                 Log.e("Database", values);
             }
