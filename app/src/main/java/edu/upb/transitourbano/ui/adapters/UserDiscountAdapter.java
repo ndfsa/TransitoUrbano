@@ -34,7 +34,7 @@ public class UserDiscountAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int i) {
-        return discountList.get(i).getId();
+        return i;
     }
 
     @Override

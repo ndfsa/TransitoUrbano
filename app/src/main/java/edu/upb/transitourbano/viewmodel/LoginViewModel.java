@@ -8,19 +8,17 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
-import com.google.firebase.auth.FirebaseUser;
-
 import edu.upb.transitourbano.models.repository.Base;
 import edu.upb.transitourbano.models.ui.UserLogged;
 import edu.upb.transitourbano.repository.Repository;
+import edu.upb.transitourbano.repository.RepositoryImpl;
 
 public class LoginViewModel extends AndroidViewModel {
 
-    private Repository repository;
+    private RepositoryImpl repository = Repository.getInstance();
 
     public LoginViewModel(@NonNull Application application) {
         super(application);
-        repository = Repository.getInstance();
     }
 
     public LiveData<Base> login(final String email, String password){
@@ -29,8 +27,8 @@ public class LoginViewModel extends AndroidViewModel {
             @Override
             public void onChanged(Base base) {
                 if (base.isSuccess()) {
-                    UserLogged userLogged = new UserLogged(email);
-                    result.postValue(new Base(userLogged));
+                    UserLogged.getInstance().setEmail(email);
+                    result.postValue(new Base(UserLogged.getInstance()));
                 } else {
                     result.postValue(base);
                 }
@@ -46,8 +44,8 @@ public class LoginViewModel extends AndroidViewModel {
             @Override
             public void onChanged(Base base) {
                 if (base.isSuccess()) {
-                    UserLogged userLogged = new UserLogged(email);
-                    result.postValue(new Base(userLogged));
+                    UserLogged.getInstance().setEmail(email);
+                    result.postValue(new Base(UserLogged.getInstance()));
                 } else {
                     result.postValue(base);
                 }

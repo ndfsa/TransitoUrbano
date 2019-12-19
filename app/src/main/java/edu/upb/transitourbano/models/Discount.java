@@ -4,7 +4,7 @@ public class Discount {
 
     private String name;
 
-    private int uuid;
+    private String uuid;
 
     private String condition;
 
@@ -15,7 +15,7 @@ public class Discount {
         this.discountRate = discountRate;
     }
 
-    public int getId() {
+    public String getUuid() {
         return uuid;
     }
 

@@ -41,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_gravity="center_horizontal"
+                android:id="@+id/userFragmentRating"
                 style="?android:attr/ratingBarStyleSmall"/>
         </LinearLayout>
     </LinearLayout>
@@ -49,6 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="start"
+        android:layout_marginLeft="20dp"
         android:text="@string/discount_list_text"
         android:textSize="35sp" />
 

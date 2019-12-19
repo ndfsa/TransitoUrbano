@@ -4,26 +4,19 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.Gson;
 
 import edu.upb.transitourbano.R;
 import edu.upb.transitourbano.models.repository.Base;
 import edu.upb.transitourbano.models.ui.UserLogged;
-import edu.upb.transitourbano.repository.Repository;
 import edu.upb.transitourbano.viewmodel.LoginViewModel;
 
 public class LoginActivity extends AppCompatActivity {

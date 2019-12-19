@@ -82,14 +82,14 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
                     //map.addMarker(new MarkerOptions().position(latLng));
                     if (roadBlock == null){
                         roadBlock = new RoadBlock(1, "Hello", "world", "hugo", latLng);
-                        Geocoder geocoder = new Geocoder(context, Locale.getDefault());
-                        List<Address> addresses = null;
-                        try {
+                        //Geocoder geocoder = new Geocoder(context, Locale.getDefault());
+                        //List<Address> addresses = null;
+                        /*try {
                             addresses = geocoder.getFromLocation(roadBlock.getLatLng().latitude, roadBlock.getLatLng().longitude, 1);
                         } catch (IOException e) {
                             e.printStackTrace();
-                        }
-                        roadBlock.setAdress(addresses.toString());
+                        }*/
+                        //roadBlock.setAdress(addresses.toString());
                         Log.e("Map","pressed: " + roadBlock.getAdress());
                         clusterManager.addItem(roadBlock);
                     }else{

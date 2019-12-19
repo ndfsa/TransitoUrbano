@@ -10,9 +10,12 @@ import edu.upb.transitourbano.utils.DiscountsUtils;
 
 public class UserLogged {
 
-    private DiscountsUtils discountsUtils;
+    private double rating;
+    private static List<Discount> discountList;
+    private String email = "fr@gmail.com";
 
     private static UserLogged ourInstance;
+    private DiscountsUtils discountsUtils;
 
     public static UserLogged getInstance() {
         if(ourInstance == null){
@@ -21,21 +24,13 @@ public class UserLogged {
         return ourInstance;
     }
 
-    private static String email = "fr@gmail.com";
-
-    private static List<Discount> discountList;
 
     private UserLogged() {
         this.discountsUtils = new DiscountsUtils();
         this.discountList = discountsUtils.getDiscountList();
     }
-    public UserLogged(String email){
-        this.email = email;
-        this.discountsUtils = new DiscountsUtils();
-        this.discountList = discountsUtils.getDiscountList();
-    }
 
-    public static String getEmail() {
+    public String getEmail() {
         return email;
     }
 
@@ -43,11 +38,19 @@ public class UserLogged {
         this.email = email;
     }
 
-    public static List<Discount> getDiscountList() {
+    public List<Discount> getDiscountList() {
         return discountList;
     }
 
     public static void setDiscountList(List<Discount> discountList) {
         UserLogged.discountList = discountList;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 }
