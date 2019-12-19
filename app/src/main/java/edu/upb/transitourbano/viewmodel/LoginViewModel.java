@@ -21,7 +21,7 @@ public class LoginViewModel extends AndroidViewModel {
 
     public LoginViewModel(@NonNull Application application) {
         super(application);
-        repository = Repository.getInstance();
+        repository = Repository.getInstance(application);
     }
 
     public LiveData<Base> login(final String email, String password){
