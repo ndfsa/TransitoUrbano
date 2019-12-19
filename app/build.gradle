@@ -43,6 +43,14 @@ dependencies {
     //google maps
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
+    // Room components
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
+    androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
+
+
+
+
 }
 
 apply plugin: 'com.google.gms.google-services'
