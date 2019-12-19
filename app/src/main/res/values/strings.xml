@@ -8,4 +8,9 @@
     <string name="list_of_blocked_roads">List of blocked roads</string>
     <string name="placeholder">PLACEHOLDER</string>
     <string name="discount_list_text">Discount List:</string>
+    <string name="create_a_new_block_road_maraker">Create a new block road maraker</string>
+    <string name="address_default">Address default</string>
+    <string name="create_road_block">Create road block</string>
+    <string name="road_block_information_hint">Road block information</string>
+    <string name="road_block_address_hint">Road block address</string>
 </resources>

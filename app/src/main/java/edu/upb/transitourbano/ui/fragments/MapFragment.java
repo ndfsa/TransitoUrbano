@@ -1,6 +1,7 @@
 package edu.upb.transitourbano.ui.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -29,6 +31,7 @@ import java.util.Locale;
 import edu.upb.transitourbano.R;
 import edu.upb.transitourbano.models.MyClusterItem;
 import edu.upb.transitourbano.models.RoadBlock;
+import edu.upb.transitourbano.ui.activities.AddRoadBlockActivity;
 import edu.upb.transitourbano.utils.Constants;
 
 public class MapFragment extends BaseFragment implements OnMapReadyCallback {
@@ -81,17 +84,22 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
                 public void onMapClick(LatLng latLng) {
                     //map.addMarker(new MarkerOptions().position(latLng));
                     if (roadBlock == null){
-                        roadBlock = new RoadBlock(1, "Hello", "world", "hugo", latLng);
-                        //Geocoder geocoder = new Geocoder(context, Locale.getDefault());
-                        //List<Address> addresses = null;
-                        /*try {
+                        roadBlock = new RoadBlock(1, "Hello :D", "Possible roadblock", "hugo", latLng);
+
+                        Geocoder geocoder = new Geocoder(context, Locale.getDefault());
+
+
+                        List<Address> addresses = null;
+                        try {
                             addresses = geocoder.getFromLocation(roadBlock.getLatLng().latitude, roadBlock.getLatLng().longitude, 1);
                         } catch (IOException e) {
                             e.printStackTrace();
-                        }*/
-                        //roadBlock.setAdress(addresses.toString());
-                        Log.e("Map","pressed: " + roadBlock.getAdress());
-                        clusterManager.addItem(roadBlock);
+                        }
+                        roadBlock.setAdress(addresses.get(0).getAddressLine(0));
+                            Log.e("Map","pressed: " + roadBlock.getAdress());
+                            clusterManager.addItem(roadBlock);
+
+
                     }else{
                         clusterManager.removeItem(roadBlock);
                         roadBlock = null;
@@ -113,8 +121,17 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
             public void onClick(View view) {
                 if(roadBlock == null){
                     Log.e("Map","pressed: null");
+                    Toast.makeText(context,"put a marker first",Toast.LENGTH_SHORT).show();
                 }else{
                     Log.e("Map","pressed: " + roadBlock.getLatLng().latitude + ", "+ roadBlock.getLatLng().longitude);
+                    double lat = roadBlock.getLatLng().latitude;
+                    double lng = roadBlock.getLatLng().longitude;
+                    Intent intent = new Intent(context, AddRoadBlockActivity.class);
+                    intent.putExtra("lat",lat);
+                    intent.putExtra("lng",lng);
+                    intent.putExtra("address",roadBlock.getAdress());
+                    getActivity().startActivity(intent);
+
                 }
             }
         });
