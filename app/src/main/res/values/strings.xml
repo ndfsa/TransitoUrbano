@@ -2,6 +2,7 @@
     <string name="app_name">TransitoUrbano</string>
     <string name="menu_map">Map</string>
     <string name="menu_roadBlocks">Road Blocks</string>
+    <string name="menu_topRoadBlocks">Top Road Blocks</string>
     <string name="menu_user">My Profile</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
@@ -19,4 +20,6 @@
     <string name="road_block_information_hint">Road block information</string>
     <string name="road_block_address_hint">Road block address</string>
     <string name="promotion">For one use only</string>
+    <string name="probability">Probability:</string>
+    <string name="register_top_roadBlock">Register top blocked roads</string>
 </resources>

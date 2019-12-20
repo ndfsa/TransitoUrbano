@@ -12,8 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
 import edu.upb.transitourbano.R;
-import edu.upb.transitourbano.models.User;
-import edu.upb.transitourbano.models.ui.UserLogged;
 import edu.upb.transitourbano.ui.adapters.UserDiscountAdapter;
 import edu.upb.transitourbano.viewmodel.UserViewModel;
 

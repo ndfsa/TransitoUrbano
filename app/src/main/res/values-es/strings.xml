@@ -3,6 +3,7 @@
     <string name="app_name">TransitoUrbano</string>
     <string name="menu_map">Mapa</string>
     <string name="menu_roadBlocks">Calles Bloqueadas</string>
+    <string name="menu_topRoadBlocks">Top calles bloqueadas</string>
     <string name="menu_user">Mi Perfil</string>
     <string name="open">Abrir</string>
     <string name="close">Cerrar</string>
@@ -20,4 +21,6 @@
     <string name="road_block_information_hint">Informacion de bloqueo</string>
     <string name="road_block_address_hint">Direccion de bloqueo</string>
     <string name="promotion">Para un solo uso.</string>
+    <string name="probability">Probabilitad:</string>
+    <string name="register_top_roadBlock">Registrar Top de calles bloqueadas</string>
 </resources>
