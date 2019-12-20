@@ -15,10 +15,11 @@ import edu.upb.transitourbano.repository.RepositoryImpl;
 
 public class LoginViewModel extends AndroidViewModel {
 
-    private RepositoryImpl repository = Repository.getInstance();
+    private RepositoryImpl repository;
 
     public LoginViewModel(@NonNull Application application) {
         super(application);
+        repository = Repository.getInstance(application);
     }
 
     public LiveData<Base> login(final String email, String password){

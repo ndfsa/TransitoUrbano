@@ -8,21 +8,31 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Observer;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import edu.upb.transitourbano.R;
+import edu.upb.transitourbano.models.TopRoadBlock;
+import edu.upb.transitourbano.models.User;
 import edu.upb.transitourbano.ui.fragments.MapFragment;
 import edu.upb.transitourbano.ui.fragments.RoadBlockListFragment;
+import edu.upb.transitourbano.ui.fragments.TopRoadBlockFragment;
 import edu.upb.transitourbano.ui.fragments.UserFragment;
+import edu.upb.transitourbano.viewmodel.TopRoadBlockViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private NavigationView navigationView;
     private ActionBarDrawerToggle actionBarDrawerToggle;
+
 
     private Map<String, Fragment> mapFragments = new HashMap<>();
 
@@ -46,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
         configureToolbar();
         initFragments();
         loadFragment("mapFragment");
+
+
+
+
     }
     private void initUI() {
         this.drawerLayout = findViewById(R.id.main_drawer_layout);
@@ -53,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         this.appBarLayout = findViewById(R.id.appBarLayout);
         this.toolbar = findViewById(R.id.toolbar);
         this.navigationView = findViewById(R.id.navigationView);
+
     }
     private void configureNavigationDrawer() {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -87,6 +103,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.roadblock:
                         loadFragment("roadBlockFragment");
                         break;
+                    case R.id.toproadblock:
+                        loadFragment("topRoadBlockFragment");
+                        break;
                     case R.id.user:
                         loadFragment("userFragment");
                         break;
@@ -104,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
         mapFragments.put("mapFragment", new MapFragment(this));
         mapFragments.put("userFragment", new UserFragment());
         mapFragments.put("roadBlockFragment", new RoadBlockListFragment());
+        mapFragments.put("topRoadBlockFragment", new TopRoadBlockFragment());
 
     }
 
@@ -115,5 +135,4 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
         }
     }
-
 }
