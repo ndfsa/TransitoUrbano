@@ -22,4 +22,7 @@
     <string name="promotion">For one use only</string>
     <string name="probability">Probability:</string>
     <string name="register_top_roadBlock">Register top blocked roads</string>
+    <string name="add_top_block">Add Top Block Road</string>
+    <string name="welcome">Welcome</string>
+    <string name="user_create">User Create</string>
 </resources>
