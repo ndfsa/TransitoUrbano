@@ -72,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
                         public void onChanged(Base base) {
                             if (base.isSuccess()) {
                                 Toast.makeText(context,
-                                        "User create",
+                                        R.string.user_create,
                                         Toast.LENGTH_SHORT)
                                         .show();
 

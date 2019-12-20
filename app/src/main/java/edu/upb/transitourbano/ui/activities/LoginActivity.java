@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                                 String json = new Gson().toJson(userLogged);
 
                                 Toast.makeText(context,
-                                        "welcome",
+                                        R.string.welcome,
                                         Toast.LENGTH_SHORT)
                                         .show();
 

@@ -23,4 +23,7 @@
     <string name="promotion">Para un solo uso.</string>
     <string name="probability">Probabilitad:</string>
     <string name="register_top_roadBlock">Registrar Top de calles bloqueadas</string>
+    <string name="add_top_block">Añadir calle bloqueada al Top</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="user_create">Usuario Creado</string>
 </resources>
