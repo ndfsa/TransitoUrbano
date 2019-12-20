@@ -173,6 +173,9 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
     }
 
     private void fillRoadblocksOnMap(){
+        if (roadBlockList == null){
+            roadBlockList = new ArrayList<>();
+        }
         for(RoadBlock r : roadBlockList){
             clusterManager.addItem(r);
         }
